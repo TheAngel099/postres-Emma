@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dulce Antojo — Postres artesanales</title>
+  <meta name="description" content="Postres caseros hechos con amor. Pide por WhatsApp y recíbelos frescos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="#inicio" class="logo">Dulce<span>Antojo</span></a>
+      <nav class="nav">
+        <a href="#menu">Menú</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a href="#" class="btn btn--whatsapp header__cta" id="btn-header-whatsapp">
+        Pedir ahora
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="inicio">
+    <div class="hero__content">
+      <p class="eyebrow">Hecho a mano, cada día</p>
+      <h1 class="hero__title">Postres que se<br>recuerdan con<br><em>una sola probada.</em></h1>
+      <p class="hero__text">
+        Tortas, cheesecakes y alfajores caseros, horneados por encargo.
+        Sin conservantes, con los ingredientes de siempre.
+      </p>
+      <div class="hero__actions">
+        <a href="#menu" class="btn btn--primary">Ver el menú</a>
+        <a href="#" class="btn btn--outline" id="btn-hero-whatsapp">Escribir por WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero__art" aria-hidden="true">
+      <div class="plate">
+        <span class="treat treat--1">🍰</span>
+        <span class="treat treat--2">🧁</span>
+        <span class="treat treat--3">🍮</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="scallop" aria-hidden="true"></div>
+
+  <!-- ===== MENU ===== -->
+  <section class="menu" id="menu">
+    <div class="section-head">
+      <p class="eyebrow">El menú de hoy</p>
+      <h2>Nuestros postres</h2>
+    </div>
+
+    <div class="menu__grid" id="menu-grid">
+      <!-- Las tarjetas se generan también se pueden editar aquí directamente -->
+      <article class="card" data-nombre="Torta de chocolate" data-precio="45">
+        <span class="card__badge">Más pedido</span>
+        <div class="card__emoji">🍫</div>
+        <h3>Torta de chocolate</h3>
+        <p>Bizcocho húmedo de cacao con ganache y un toque de café.</p>
+        <div class="card__footer">
+          <span class="card__price">S/ 45</span>
+          <button class="btn btn--small btn--whatsapp btn-pedir">Pedir</button>
+        </div>
+      </article>
+
+      <article class="card" data-nombre="Cheesecake de fresa" data-precio="38">
+        <div class="card__emoji">🍓</div>
+        <h3>Cheesecake de fresa</h3>
+        <p>Base de galleta, relleno cremoso y mermelada de fresa natural.</p>
+        <div class="card__footer">
+          <span class="card__price">S/ 38</span>
+          <button class="btn btn--small btn--whatsapp btn-pedir">Pedir</button>
+        </div>
+      </article>
+
+      <article class="card" data-nombre="Alfajores (docena)" data-precio="20">
+        <div class="card__emoji">🥮</div>
+        <h3>Alfajores (docena)</h3>
+        <p>Rellenos de manjar blanco, espolvoreados con azúcar impalpable.</p>
+        <div class="card__footer">
+          <span class="card__price">S/ 20</span>
+          <button class="btn btn--small btn--whatsapp btn-pedir">Pedir</button>
+        </div>
+      </article>
+
+      <article class="card" data-nombre="Tres leches" data-precio="35">
+        <div class="card__emoji">🍮</div>
+        <h3>Tres leches</h3>
+        <p>Suave, bien bañado, con un toque de canela por encima.</p>
+        <div class="card__footer">
+          <span class="card__price">S/ 35</span>
+          <button class="btn btn--small btn--whatsapp btn-pedir">Pedir</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== NOSOTROS ===== -->
+  <section class="nosotros" id="nosotros">
+    <div class="nosotros__inner">
+      <p class="eyebrow">Nuestra historia</p>
+      <h2>De la cocina de casa a tu mesa</h2>
+      <p>
+        Todo empezó horneando para la familia. Hoy cada torta sigue
+        haciéndose igual: con tiempo, con ingredientes reales y
+        sin apuro. Los pedidos se coordinan por WhatsApp para que
+        elijas el sabor, la fecha y el tamaño que necesitas.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER / CONTACTO ===== -->
+  <footer class="footer" id="contacto">
+    <div class="footer__inner">
+      <div>
+        <p class="logo logo--footer">Dulce<span>Antojo</span></p>
+        <p class="footer__text">Pedidos con 24h de anticipación. Lima, Perú.</p>
+      </div>
+      <a href="#" class="btn btn--primary" id="btn-footer-whatsapp">Escribir por WhatsApp</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

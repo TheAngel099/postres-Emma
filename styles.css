@@ -1,0 +1,305 @@
+/* =========================================================
+   TOKENS — cambia estos valores para ajustar todo el diseño
+   ========================================================= */
+:root {
+  --cream:        #FBF1E6;
+  --cream-card:   #FFFBF6;
+  --chocolate:    #2E1810;
+  --chocolate-70: #2E181070;
+  --berry:        #B33951;
+  --berry-dark:   #7A2338;
+  --caramel:      #D9A441;
+
+  --font-display: "Fraunces", serif;
+  --font-body:    "Work Sans", sans-serif;
+  --font-accent:  "Caveat", cursive;
+
+  --radius: 18px;
+  --shadow: 0 10px 30px rgba(46, 24, 16, 0.08);
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--chocolate);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; }
+
+.eyebrow {
+  font-family: var(--font-accent);
+  font-size: 1.4rem;
+  color: var(--berry);
+}
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.6rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.btn--primary {
+  background: var(--chocolate);
+  color: var(--cream);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--chocolate);
+  border: 1.5px solid var(--chocolate);
+}
+
+.btn--whatsapp {
+  background: var(--berry);
+  color: #fff;
+}
+.btn--whatsapp:hover { background: var(--berry-dark); }
+
+.btn--small { padding: 0.55rem 1.1rem; font-size: 0.85rem; }
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--cream);
+  border-bottom: 1px solid rgba(46, 24, 16, 0.08);
+}
+
+.header__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+.logo span { color: var(--berry); }
+
+.nav { display: flex; gap: 1.8rem; }
+.nav a { font-weight: 500; font-size: 0.95rem; }
+.nav a:hover { color: var(--berry); }
+
+.header__cta { display: none; }
+@media (min-width: 720px) {
+  .header__cta { display: inline-flex; }
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 5rem;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.hero__title {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 600;
+  margin: 0.6rem 0 1.2rem;
+}
+.hero__title em { color: var(--berry); font-style: normal; }
+
+.hero__text {
+  max-width: 40ch;
+  color: var(--chocolate-70);
+  margin-bottom: 1.8rem;
+}
+
+.hero__actions { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+
+.hero__art { display: flex; justify-content: center; }
+
+.plate {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: var(--cream-card);
+  box-shadow: var(--shadow), inset 0 0 0 10px var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.treat {
+  position: absolute;
+  font-size: 3.2rem;
+  filter: drop-shadow(0 6px 10px rgba(46,24,16,0.15));
+}
+.treat--1 { transform: translate(-40px, -20px) rotate(-8deg); }
+.treat--2 { transform: translate(35px, 10px) rotate(10deg); font-size: 2.6rem; }
+.treat--3 { transform: translate(-5px, 55px) rotate(-4deg); font-size: 2.4rem; }
+
+@media (max-width: 800px) {
+  .hero { grid-template-columns: 1fr; text-align: center; }
+  .hero__text { margin-left: auto; margin-right: auto; }
+  .hero__actions { justify-content: center; }
+}
+
+/* Borde festoneado — el detalle distintivo, como el forro de un molde */
+.scallop {
+  height: 24px;
+  background:
+    radial-gradient(circle at 12px 0, transparent 12px, var(--cream-card) 12.5px) 0 0 / 24px 24px repeat-x;
+  background-color: var(--cream);
+}
+
+/* =========================================================
+   MENU
+   ========================================================= */
+.menu {
+  background: var(--cream-card);
+  padding: 1rem 1.5rem 5rem;
+}
+
+.section-head {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+.section-head h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-top: 0.4rem; }
+
+.menu__grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.4rem;
+}
+
+.card {
+  position: relative;
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.card.is-visible { opacity: 1; transform: translateY(0); }
+
+.card__emoji { font-size: 2.4rem; margin-bottom: 0.6rem; }
+
+.card h3 { font-size: 1.15rem; margin-bottom: 0.4rem; }
+
+.card p {
+  font-size: 0.9rem;
+  color: var(--chocolate-70);
+  margin-bottom: 1.2rem;
+  min-height: 2.6em;
+}
+
+.card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card__price {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--berry-dark);
+}
+
+.card__badge {
+  position: absolute;
+  top: -10px;
+  right: 1.2rem;
+  background: var(--caramel);
+  color: var(--chocolate);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+}
+
+/* =========================================================
+   NOSOTROS
+   ========================================================= */
+.nosotros {
+  padding: 5rem 1.5rem;
+  background: var(--chocolate);
+  color: var(--cream);
+}
+
+.nosotros__inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+.nosotros__inner .eyebrow { color: var(--caramel); }
+.nosotros__inner h2 { font-size: clamp(1.7rem, 3vw, 2.2rem); margin: 0.5rem 0 1.2rem; }
+.nosotros__inner p:last-child { color: #FBF1E6cc; }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer { padding: 3rem 1.5rem; }
+
+.footer__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.logo--footer { margin-bottom: 0.3rem; }
+.footer__text { font-size: 0.85rem; color: var(--chocolate-70); }
+
+/* Accesibilidad: foco visible en todos los elementos interactivos */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--berry);
+  outline-offset: 3px;
+}
+
+/* Respeta la preferencia de reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .card { transition: none; opacity: 1; transform: none; }
+  .btn:hover { transform: none; }
+}
