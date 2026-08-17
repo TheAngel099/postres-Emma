@@ -3,7 +3,7 @@
    ========================================================= */
 const CONFIG = {
   // Número de WhatsApp con código de país, SIN "+" ni espacios.
-  telefono: "51987654321",
+  telefono: "51970725307",
   nombreNegocio: "Postres Emma",
 };
 
