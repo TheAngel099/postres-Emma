@@ -5,7 +5,7 @@ const CONFIG = {
   // Número de WhatsApp con código de país, SIN "+" ni espacios.
   // Ejemplo Perú: 51987654321
   telefono: "51987654321",
-  nombreNegocio: "Dulce Antojo",
+  nombreNegocio: "Postres Emma",
 };
 
 /* =========================================================
@@ -23,7 +23,7 @@ function crearLinkWhatsapp(producto, precio) {
 }
 
 /* Botones generales (header, hero, footer) → mensaje genérico */
-document.querySelectorAll("#btn-header-whatsapp, #btn-hero-whatsapp, #btn-footer-whatsapp")
+document.querySelectorAll("#btn-header-whatsapp, #btn-hero-whatsapp, #btn-footer-whatsapp, #btn-nav-whatsapp")
   .forEach((btn) => {
     btn.href = crearLinkWhatsapp();
   });
@@ -54,3 +54,35 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll(".card").forEach((card) => observer.observe(card));
+
+/* =========================================================
+   Menú hamburguesa (solo visible en móvil)
+   ========================================================= */
+const navToggle = document.getElementById("nav-toggle");
+const nav = document.getElementById("nav");
+
+navToggle.addEventListener("click", () => {
+  const abierto = nav.classList.toggle("is-open");
+  navToggle.setAttribute("aria-expanded", abierto);
+});
+
+/* Cierra el menú al tocar un link (mejor experiencia en móvil) */
+nav.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+  });
+});
+
+/* =========================================================
+   Botón "volver arriba" — aparece después de bajar un poco
+   ========================================================= */
+const btnTop = document.getElementById("btn-top");
+
+window.addEventListener("scroll", () => {
+  btnTop.classList.toggle("is-visible", window.scrollY > 500);
+});
+
+btnTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
