@@ -16,6 +16,7 @@
 
   --radius: 18px;
   --shadow: 0 10px 30px rgba(46, 24, 16, 0.08);
+  --shadow-hover: 0 18px 40px rgba(46, 24, 16, 0.12);
 }
 
 /* =========================================================
@@ -59,7 +60,7 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; }
   font-size: 0.95rem;
   border: none;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
 .btn:hover { transform: translateY(-2px); }
@@ -68,12 +69,14 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; }
   background: var(--chocolate);
   color: var(--cream);
 }
+.btn--primary:hover { background: #3f2218; }
 
 .btn--outline {
   background: transparent;
   color: var(--chocolate);
   border: 1.5px solid var(--chocolate);
 }
+.btn--outline:hover { background: var(--chocolate); color: var(--cream); }
 
 .btn--whatsapp {
   background: var(--berry);
@@ -120,7 +123,7 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; }
   .header__cta { display: inline-flex; }
 }
 
-/* Botón hamburguesa — solo aparece en pantallas chicas */
+/* Botón hamburguesa */
 .nav__toggle {
   display: none;
   flex-direction: column;
@@ -152,27 +155,24 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; }
     flex-direction: column;
     align-items: center;
     gap: 1.4rem;
-    padding: 1.5rem 0 2rem;
+    padding: 0 1.5rem;
     border-bottom: 1px solid rgba(46, 24, 16, 0.08);
-
-    /* Oculto por defecto, sin usar display:none para poder animar */
     max-height: 0;
     overflow: hidden;
-    padding-top: 0;
-    padding-bottom: 0;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    pointer-events: none; /* evita clics mientras está cerrado */
   }
 
   .nav.is-open {
-    max-height: 320px;
-    padding-top: 1.5rem;
-    padding-bottom: 2rem;
+    max-height: 500px; /* suficiente para varios enlaces */
+    padding: 1.5rem 1.5rem 2rem;
+    pointer-events: auto;
   }
 
   .nav__cta-mobile { display: inline-flex; margin-top: 0.4rem; }
 }
 
-/* Transforma la hamburguesa en "X" cuando el menú está abierto */
+/* Transforma la hamburguesa en "X" */
 .nav__toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
 .nav__toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .nav__toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
@@ -228,7 +228,6 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; }
 .treat--2 { transform: translate(35px, 10px) rotate(10deg); font-size: 2.6rem; }
 .treat--3 { transform: translate(-5px, 55px) rotate(-4deg); font-size: 2.4rem; }
 
-/* Animación flotante: sube y baja suavemente, en bucle */
 .float { animation: flotar 3.5s ease-in-out infinite; }
 .float--delay1 { animation-delay: 0.6s; }
 .float--delay2 { animation-delay: 1.2s; }
@@ -244,12 +243,23 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; }
   .hero__actions { justify-content: center; }
 }
 
-/* Borde festoneado — el detalle distintivo, como el forro de un molde */
+/* Borde festoneado — versión mejorada con pseudo-elemento */
 .scallop {
-  height: 24px;
-  background:
-    radial-gradient(circle at 12px 0, transparent 12px, var(--cream-card) 12.5px) 0 0 / 24px 24px repeat-x;
-  background-color: var(--cream);
+  position: relative;
+  height: 28px;
+  background: var(--cream);
+  overflow: hidden;
+}
+.scallop::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: radial-gradient(circle at 50% 100%, var(--cream-card) 12px, transparent 12.5px);
+  background-size: 26px 28px;
+  background-repeat: repeat-x;
 }
 
 /* =========================================================
@@ -283,9 +293,10 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; }
   box-shadow: var(--shadow);
   opacity: 0;
   transform: translateY(14px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
 }
 .card.is-visible { opacity: 1; transform: translateY(0); }
+.card:hover { box-shadow: var(--shadow-hover); }
 
 .card__emoji { font-size: 2.4rem; margin-bottom: 0.6rem; }
 
@@ -312,14 +323,15 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; }
 
 .card__badge {
   position: absolute;
-  top: -10px;
-  right: 1.2rem;
+  top: -8px;
+  right: 0.8rem;
   background: var(--caramel);
   color: var(--chocolate);
   font-size: 0.72rem;
   font-weight: 600;
-  padding: 0.3rem 0.7rem;
+  padding: 0.25rem 0.8rem;
   border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
 /* =========================================================
@@ -418,15 +430,16 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; }
 .logo--footer { margin-bottom: 0.3rem; }
 .footer__text { font-size: 0.85rem; color: var(--chocolate-70); }
 
-/* Accesibilidad: foco visible en todos los elementos interactivos */
+/* Accesibilidad: foco visible */
 a:focus-visible, button:focus-visible {
   outline: 2px solid var(--berry);
   outline-offset: 3px;
 }
 
-/* Respeta la preferencia de reducir movimiento */
+/* Preferencia de movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .card { transition: none; opacity: 1; transform: none; }
   .btn:hover { transform: none; }
+  .float { animation: none; }
 }

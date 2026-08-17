@@ -5,6 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Postres Emma — Postres artesanales</title>
   <meta name="description" content="Postres caseros hechos por Emma con amor. Pide por WhatsApp y recíbelos frescos.">
+  <!-- Favicon en emoji (funciona en la mayoría de navegadores) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍰</text></svg>">
+  <!-- Datos estructurados para negocio local (SEO) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Postres Emma",
+      "description": "Postres artesanales hechos por encargo. Tortas, cheesecakes y alfajores.",
+      "url": "https://postresemma.com",
+      "telephone": "+51987654321",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lima",
+        "addressCountry": "PE"
+      },
+      "priceRange": "$$"
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -15,145 +34,136 @@
   <header class="header">
     <div class="header__inner">
       <a href="#inicio" class="logo">Postres<span>Emma</span></a>
-
-      <!-- Botón hamburguesa: solo visible en pantallas chicas -->
-      <button
-        class="nav__toggle"
-        id="nav-toggle"
-        aria-label="Abrir menú"
-        aria-expanded="false"
-        aria-controls="nav">
+      <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
         <span></span><span></span><span></span>
       </button>
-
-      <nav class="nav" id="nav">
+      <nav class="nav" id="nav" role="navigation" aria-label="Menú principal">
         <a href="#menu">Menú</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#contacto">Contacto</a>
-        <a href="#" class="btn btn--whatsapp nav__cta-mobile" id="btn-nav-whatsapp">Pedir ahora</a>
+        <a href="#" class="btn btn--whatsapp nav__cta-mobile" data-wa-message="general">Pedir ahora</a>
       </nav>
-
-      <a href="#" class="btn btn--whatsapp header__cta" id="btn-header-whatsapp">
-        Pedir ahora
-      </a>
+      <a href="#" class="btn btn--whatsapp header__cta" data-wa-message="general">Pedir ahora</a>
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero" id="inicio">
-    <div class="hero__content">
-      <p class="eyebrow">Hecho a mano, cada día</p>
-      <h1 class="hero__title">Postres que se<br>recuerdan con<br><em>una sola probada.</em></h1>
-      <p class="hero__text">
-        Tortas, cheesecakes y alfajores caseros, horneados por encargo.
-        Sin conservantes, con los ingredientes de siempre.
-      </p>
-      <div class="hero__actions">
-        <a href="#menu" class="btn btn--primary">Ver el menú</a>
-        <a href="#" class="btn btn--outline" id="btn-hero-whatsapp">Escribir por WhatsApp</a>
-      </div>
-    </div>
-    <div class="hero__art" aria-hidden="true">
-      <div class="plate">
-        <span class="treat treat--1 float">🍰</span>
-        <span class="treat treat--2 float float--delay1">🧁</span>
-        <span class="treat treat--3 float float--delay2">🍮</span>
-      </div>
-    </div>
-  </section>
-
-  <div class="scallop" aria-hidden="true"></div>
-
-  <!-- ===== MENU ===== -->
-  <section class="menu" id="menu">
-    <div class="section-head">
-      <p class="eyebrow">El menú de hoy</p>
-      <h2>Nuestros postres</h2>
-    </div>
-
-    <div class="menu__grid" id="menu-grid">
-      <!-- Las tarjetas se generan también se pueden editar aquí directamente -->
-      <article class="card" data-nombre="Torta de chocolate" data-precio="45">
-        <span class="card__badge">Más pedido</span>
-        <div class="card__emoji">🍫</div>
-        <h3>Torta de chocolate</h3>
-        <p>Bizcocho húmedo de cacao con ganache y un toque de café.</p>
-        <div class="card__footer">
-          <span class="card__price">S/ 45</span>
-          <button class="btn btn--small btn--whatsapp btn-pedir">Pedir</button>
+  <!-- ===== CONTENIDO PRINCIPAL ===== -->
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="inicio">
+      <div class="hero__content">
+        <p class="eyebrow">Hecho a mano, cada día</p>
+        <h1 class="hero__title">Postres que se<br>recuerdan con<br><em>una sola probada.</em></h1>
+        <p class="hero__text">
+          Tortas, cheesecakes y alfajores caseros, horneados por encargo.
+          Sin conservantes, con los ingredientes de siempre.
+        </p>
+        <div class="hero__actions">
+          <a href="#menu" class="btn btn--primary">Ver el menú</a>
+          <a href="#" class="btn btn--outline" data-wa-message="general">Escribir por WhatsApp</a>
         </div>
-      </article>
-
-      <article class="card" data-nombre="Cheesecake de fresa" data-precio="38">
-        <div class="card__emoji">🍓</div>
-        <h3>Cheesecake de fresa</h3>
-        <p>Base de galleta, relleno cremoso y mermelada de fresa natural.</p>
-        <div class="card__footer">
-          <span class="card__price">S/ 38</span>
-          <button class="btn btn--small btn--whatsapp btn-pedir">Pedir</button>
-        </div>
-      </article>
-
-      <article class="card" data-nombre="Alfajores (docena)" data-precio="20">
-        <div class="card__emoji">🥮</div>
-        <h3>Alfajores (docena)</h3>
-        <p>Rellenos de manjar blanco, espolvoreados con azúcar impalpable.</p>
-        <div class="card__footer">
-          <span class="card__price">S/ 20</span>
-          <button class="btn btn--small btn--whatsapp btn-pedir">Pedir</button>
-        </div>
-      </article>
-
-      <article class="card" data-nombre="Tres leches" data-precio="35">
-        <div class="card__emoji">🍮</div>
-        <h3>Tres leches</h3>
-        <p>Suave, bien bañado, con un toque de canela por encima.</p>
-        <div class="card__footer">
-          <span class="card__price">S/ 35</span>
-          <button class="btn btn--small btn--whatsapp btn-pedir">Pedir</button>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- ===== COMO PEDIR ===== -->
-  <section class="pasos">
-    <div class="section-head">
-      <p class="eyebrow">Así de fácil</p>
-      <h2>Cómo pedir</h2>
-    </div>
-    <div class="pasos__grid">
-      <div class="paso">
-        <span class="paso__numero">1</span>
-        <h3>Elige tu postre</h3>
-        <p>Revisa el menú y decide qué antojo se te viene.</p>
       </div>
-      <div class="paso">
-        <span class="paso__numero">2</span>
-        <h3>Escribe por WhatsApp</h3>
-        <p>El botón ya arma el mensaje con lo que elegiste.</p>
+      <div class="hero__art" aria-hidden="true">
+        <div class="plate">
+          <span class="treat treat--1 float">🍰</span>
+          <span class="treat treat--2 float float--delay1">🧁</span>
+          <span class="treat treat--3 float float--delay2">🍮</span>
+        </div>
       </div>
-      <div class="paso">
-        <span class="paso__numero">3</span>
-        <h3>Coordina y recíbelo</h3>
-        <p>Confirmamos fecha, pago y entrega. Listo.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== NOSOTROS ===== -->
-  <section class="nosotros" id="nosotros">
-    <div class="nosotros__inner">
-      <p class="eyebrow">Nuestra historia</p>
-      <h2>De la cocina de casa a tu mesa</h2>
-      <p>
-        Todo empezó horneando para la familia. Hoy cada torta sigue
-        haciéndose igual: con tiempo, con ingredientes reales y
-        sin apuro. Los pedidos se coordinan por WhatsApp para que
-        elijas el sabor, la fecha y el tamaño que necesitas.
-      </p>
-    </div>
-  </section>
+    <div class="scallop" aria-hidden="true"></div>
+
+    <!-- ===== MENU ===== -->
+    <section class="menu" id="menu" aria-labelledby="menu-heading">
+      <div class="section-head">
+        <p class="eyebrow">El menú de hoy</p>
+        <h2 id="menu-heading">Nuestros postres</h2>
+      </div>
+      <div class="menu__grid" id="menu-grid">
+        <!-- Cada tarjeta incluye data-nombre y data-precio para el mensaje -->
+        <article class="card" data-nombre="Torta de chocolate" data-precio="45">
+          <span class="card__badge">Más pedido</span>
+          <div class="card__emoji">🍫</div>
+          <h3>Torta de chocolate</h3>
+          <p>Bizcocho húmedo de cacao con ganache y un toque de café.</p>
+          <div class="card__footer">
+            <span class="card__price">S/ 45</span>
+            <button class="btn btn--small btn--whatsapp btn-pedir" data-wa-message="producto">Pedir</button>
+          </div>
+        </article>
+
+        <article class="card" data-nombre="Cheesecake de fresa" data-precio="38">
+          <div class="card__emoji">🍓</div>
+          <h3>Cheesecake de fresa</h3>
+          <p>Base de galleta, relleno cremoso y mermelada de fresa natural.</p>
+          <div class="card__footer">
+            <span class="card__price">S/ 38</span>
+            <button class="btn btn--small btn--whatsapp btn-pedir" data-wa-message="producto">Pedir</button>
+          </div>
+        </article>
+
+        <article class="card" data-nombre="Alfajores (docena)" data-precio="20">
+          <div class="card__emoji">🥮</div>
+          <h3>Alfajores (docena)</h3>
+          <p>Rellenos de manjar blanco, espolvoreados con azúcar impalpable.</p>
+          <div class="card__footer">
+            <span class="card__price">S/ 20</span>
+            <button class="btn btn--small btn--whatsapp btn-pedir" data-wa-message="producto">Pedir</button>
+          </div>
+        </article>
+
+        <article class="card" data-nombre="Tres leches" data-precio="35">
+          <div class="card__emoji">🍮</div>
+          <h3>Tres leches</h3>
+          <p>Suave, bien bañado, con un toque de canela por encima.</p>
+          <div class="card__footer">
+            <span class="card__price">S/ 35</span>
+            <button class="btn btn--small btn--whatsapp btn-pedir" data-wa-message="producto">Pedir</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== COMO PEDIR ===== -->
+    <section class="pasos" aria-labelledby="pasos-heading">
+      <div class="section-head">
+        <p class="eyebrow">Así de fácil</p>
+        <h2 id="pasos-heading">Cómo pedir</h2>
+      </div>
+      <div class="pasos__grid">
+        <div class="paso">
+          <span class="paso__numero" aria-hidden="true">1</span>
+          <h3>Elige tu postre</h3>
+          <p>Revisa el menú y decide qué antojo se te viene.</p>
+        </div>
+        <div class="paso">
+          <span class="paso__numero" aria-hidden="true">2</span>
+          <h3>Escribe por WhatsApp</h3>
+          <p>El botón ya arma el mensaje con lo que elegiste.</p>
+        </div>
+        <div class="paso">
+          <span class="paso__numero" aria-hidden="true">3</span>
+          <h3>Coordina y recíbelo</h3>
+          <p>Confirmamos fecha, pago y entrega. Listo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NOSOTROS ===== -->
+    <section class="nosotros" id="nosotros" aria-labelledby="nosotros-heading">
+      <div class="nosotros__inner">
+        <p class="eyebrow">Nuestra historia</p>
+        <h2 id="nosotros-heading">De la cocina de casa a tu mesa</h2>
+        <p>
+          Todo empezó horneando para la familia. Hoy cada torta sigue
+          haciéndose igual: con tiempo, con ingredientes reales y
+          sin apuro. Los pedidos se coordinan por WhatsApp para que
+          elijas el sabor, la fecha y el tamaño que necesitas.
+        </p>
+      </div>
+    </section>
+  </main>
 
   <!-- ===== FOOTER / CONTACTO ===== -->
   <footer class="footer" id="contacto">
@@ -162,11 +172,11 @@
         <p class="logo logo--footer">Postres<span>Emma</span></p>
         <p class="footer__text">Pedidos con 24h de anticipación. Lima, Perú.</p>
       </div>
-      <a href="#" class="btn btn--primary" id="btn-footer-whatsapp">Escribir por WhatsApp</a>
+      <a href="#" class="btn btn--primary" data-wa-message="general">Escribir por WhatsApp</a>
     </div>
   </footer>
 
-  <!-- Botón flotante para volver arriba, aparece al hacer scroll -->
+  <!-- Botón flotante para volver arriba -->
   <button id="btn-top" class="btn-top" aria-label="Volver arriba">↑</button>
 
   <script src="script.js"></script>
