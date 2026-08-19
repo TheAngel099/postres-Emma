@@ -231,6 +231,28 @@
   }
 
   /* ===========================================================
+     Aviso de cookies — se muestra una vez, se recuerda la elección
+     =========================================================== */
+  function initCookieBanner() {
+    var banner = $("#cookie-banner");
+    var ok = $("#cookie-ok");
+    if (!banner || !ok) return;
+
+    var YA_ACEPTO = "postresEmma_cookiesOk";
+    var yaAcepto = false;
+    try { yaAcepto = window.localStorage.getItem(YA_ACEPTO) === "1"; } catch (e) { /* ignore */ }
+
+    if (!yaAcepto) {
+      setTimeout(function () { banner.classList.add("is-visible"); }, 800);
+    }
+
+    ok.addEventListener("click", function () {
+      banner.classList.remove("is-visible");
+      try { window.localStorage.setItem(YA_ACEPTO, "1"); } catch (e) { /* ignore */ }
+    });
+  }
+
+  /* ===========================================================
      Boot
      =========================================================== */
   function boot() {
@@ -243,6 +265,7 @@
     safe(initAnchors, "initAnchors");
     safe(initMarquee, "initMarquee");
     safe(initHeroSplit, "initHeroSplit");
+    safe(initCookieBanner, "initCookieBanner");
     document.documentElement.classList.add("is-ready");
   }
 

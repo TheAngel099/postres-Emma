@@ -90,7 +90,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span>Canela de Ceylán</span><span class="dot">✺</span>
       <span>Maracuyá</span><span class="dot">✺</span>
       <span>Vainilla bourbon</span><span class="dot">✺</span>
-      <span>Pastel de plano</span><span class="dot">✺</span>
       <span>Caramelo casero</span><span class="dot">✺</span>
     </div>
   </div>
@@ -152,16 +151,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Vainilla o chocolate, con frosting a elección.</p>
         <div class="card__foot">
           <span class="card__price">S/ 28</span>
-          <button class="btn btn--small" data-whatsapp-pedido>Pedir</button>
-        </div>
-      </article>
-
-      <article class="card" data-reveal data-nombre="Pastel de platano" data-precio="10">
-        <svg class="card__icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M20 32h24l-3 20a3 3 0 0 1-3 2.6H26a3 3 0 0 1-3-2.6L20 32Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M18 32c0-8 6-14 14-14s14 6 14 14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-        <h3>Pastel de platano</h3>
-        <p>hecho de platano, alto en proteinas.</p>
-        <div class="card__foot">
-          <span class="card__price">S/ 10</span>
           <button class="btn btn--small" data-whatsapp-pedido>Pedir</button>
         </div>
       </article>
@@ -263,12 +252,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="logo logo--footer">Emma<span class="logo__dot">·</span></p>
       <p class="footer__text">Postres por encargo · Lima, Perú</p>
       <p class="footer__text">Pedidos con 24h de anticipación</p>
+      <p class="footer__text"><a href="privacidad.html">Aviso de privacidad</a></p>
     </div>
     <a href="#" class="btn btn--outline" data-whatsapp>Escribir por WhatsApp</a>
   </div>
 </footer>
 
 <button id="btn-top" class="btn-top" aria-label="Volver arriba">↑</button>
+
+<!-- Aviso de cookies / privacidad -->
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Aviso de cookies">
+  <p>
+    Este sitio usa cookies de análisis (Google Analytics) para entender cómo lo visitan.
+    No vendemos tus datos. <a href="privacidad.html">Más información</a>.
+  </p>
+  <button class="btn btn--small cookie-banner__ok" id="cookie-ok">Entendido</button>
+</div>
 
 <!-- Libs primero, defer mantiene el orden -->
 <script defer src="lib/gsap.min.js"></script>
